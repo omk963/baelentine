@@ -1,31 +1,61 @@
-.App {
-  text-align: center;
+* {
+    border: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: 0.3s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+    display: block;
+    text-align: center;
+    height: 100vh;
+    background-color: pink;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+section.content, .loading {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+.content > h1 {
+    padding: 1rem;
 }
 
-.heart {
-  color: #ff0000;
+img {
+    border-radius: 5%;
+    /* width: fit-content; */
+    min-width: 25vw;
+    max-width: 30vw;
+    max-height: max-content;
+    margin-bottom: 2rem;
 }
 
-.small {
-  font-size: 0.75rem;
+div.choices {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+div.choices > .choices-yes {
+    background-color: gainsboro;
+    padding: 1rem 2.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 5px 5px 5px black;
+    margin-block: 1rem;
+}
+
+div.choices > .choices-yes:hover , button:hover {
+    transform: scale(1.2) ;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+button {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin: 5px;
+    box-shadow: 1px 1px 1px black;
 }

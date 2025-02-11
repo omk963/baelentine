@@ -1,27 +1,34 @@
 import './App.css';
+import { useState, useEffect } from 'react';
+import Loading from 'react-loading-components'
+import Content from './containers/Content'
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+  }, [])
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+    <div className="main">
+      {loading && (
+        <div className='loading'>
+          <Loading type='hearts' width={100} height={100} fill='#ff0000' />
+          <p>Loading...</p>
+        </div>
+      )}
+      {!loading && (
+        <section className='content'>
+          <h1>To My Dearest</h1>
+          <Content />
+        </section>
+      )}
+
     </div>
   );
 }
