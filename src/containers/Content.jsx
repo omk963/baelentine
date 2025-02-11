@@ -6,10 +6,13 @@ const Content = () => {
     const [count, setCount] = useState(0)
     const [choice, setChoice] = useState('No')
     const [joke, setJoke] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const getJoke = async () => {
+        setLoading(true)
         const jokes = await getJokeFromMistral()
         setJoke(jokes)
+        setLoading(false)
       }
 
     useEffect(() => {
@@ -38,10 +41,11 @@ const Content = () => {
                     </>
                 ) : (
                     <>
-                        <img src='https://media.tenor.com/N5JBKgzrfCkAAAAM/happy-new.gif' />
+                        <img src='https://media.tenor.com/N5JBKgzrfCkAAAAM/happy-new.gif' className="snoopy" />
                         <h3>There's only one choice, but here's a little something for you. Click on the button below!</h3>
                         <button onClick={getJoke}>Get Joke</button>
-                        {joke && <p style={{width: '30vw'}}>{joke}</p>}
+                        {loading && <p>Retrieving Joke...</p>}
+                        {joke && <p style={{width: '40vw'}}>{joke}</p>}
                         <button onClick={()=>setCount(2)}>Proceed</button>
                     </>
                 )

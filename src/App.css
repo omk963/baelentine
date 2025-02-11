@@ -33,6 +33,10 @@ img {
     margin-bottom: 2rem;
 }
 
+img.snoopy {
+    max-width: 20vw;
+}
+
 div.choices {
     width: 30%;
     display: flex;
