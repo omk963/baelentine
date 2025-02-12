@@ -42,7 +42,7 @@ const Content = () => {
                         <h3>There's only one choice, but here's a little something for you. Click on the button below!</h3>
                         <button onClick={getJoke}>Get Joke</button>
                         {joke && <p style={{width: '30vw'}}>{joke}</p>}
-                        <button onClick={()=>setCount(2)}>Proceed</button>
+                        <button onClick={()=>setCount(2) setJoke('')}>Proceed</button>
                     </>
                 )
             }
