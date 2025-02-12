@@ -10,7 +10,7 @@ const Content = () => {
 
     const getJoke = async () => {
         setLoading(true)
-        const jokes = await getJokeFromMistral()
+        const jokes = await getJokeFromMistral(joke)
         setJoke(jokes)
         setLoading(false)
       }
@@ -45,7 +45,7 @@ const Content = () => {
                         <h3>There's only one choice, but here's a little something for you. Click on the button below!</h3>
                         <button onClick={getJoke}>Get Joke</button>
                         {loading && <p>Retrieving Joke...</p>}
-                        {joke && <p style={{width: '40vw'}}>{joke}</p>}
+                        {(joke && !loading) && <p style={{width: '40vw'}}>{joke}</p>}
                         <button onClick={()=>setCount(2)}>Proceed</button>
                     </>
                 )

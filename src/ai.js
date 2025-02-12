@@ -7,13 +7,13 @@ You are a cupid trying to get the user to fall in love with creater of this web 
 
 const hf = new HfInference(import.meta.env.VITE_HF_ACCESS_TOKEN)
 
-export async function getJokeFromMistral() {
+export async function getJokeFromMistral(jokes) {
     try {
         const response = await hf.chatCompletion({
             model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
             messages: [
                 { role: "system", content: SYSTEM_PROMPT },
-                { role: "user", content: `Please give Valentine's day joke to get the user to fall in love with the creater of this web page. Each render is a new joke` },
+                { role: "user", content: `Please give a new Valentine's day joke to get the user to fall in love with me. Give a new joke given the following has already been said ${jokes}.` },
             ],
             max_tokens: 1024,
         })
